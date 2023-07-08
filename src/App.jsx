@@ -5,18 +5,22 @@ function App() {
       {/* Sidebar end */}
       {/* Header start */}
       <header>
-        <div>
-          <img src="src/assets/icon-menu.svg" alt="" />
+        <div className="container">
+          <div>
+            <img src="src/assets/icon-menu.svg" alt="" />
+          </div>
+          <img src="src/assets/icon-document.svg" alt="" />
+          <div>Document Name</div>
+          <h1>Welcome.md</h1>
         </div>
-        <img src="src/assets/icon-document.svg" alt="" />
-        <div>Document Name</div>
-        <h1>Welcome.md</h1>
-        <img src="src/assets/icon-delete.svg" alt="" />
-        <button>
-          <img src="src/assets/icon-save.svg" alt="" />
-          Save Changes
-        </button>
-        <div>Save Icon</div>
+
+        <div className="container">
+          <img src="src/assets/icon-delete.svg" alt="" />
+          <button>
+            <img src="src/assets/icon-save.svg" alt="" />
+            Save Changes
+          </button>
+        </div>
       </header>
       {/* Header end */}
       {/* Main start */}
