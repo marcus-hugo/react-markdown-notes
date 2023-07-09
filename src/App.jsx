@@ -1,41 +1,22 @@
+import { React, useState } from "react"
+import ReactMarkdown from "react-markdown"
+import data from "./data.json"
+
+const currentYear = new Date().getFullYear()
+
 function App() {
-  const placeHolder = `
-# Welcome to Markdown
+  const placeHolder = data[1].content
+  const [markdown, setMarkdown] = useState(placeHolder)
 
-Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents.
-
-## How to use this?
-
-1. Write markdown in the markdown editor window
-2. See the rendered markdown in the preview window
-
-### Features
-
-- Create headings, paragraphs, links, blockquotes, inline-code, code blocks, and lists
-- Name and save the document to access again later
-- Choose between Light or Dark mode depending on your preference
-
-> This is an example of a blockquote. If you would like to learn more about markdown syntax, you can visit this [markdown cheatsheet](https://www.markdownguide.org/cheat-sheet/).
-
-#### Headings
-
-To create a heading, add the hash sign (#) before the heading. The number of number signs you use should correspond to the heading level. You'll see in this guide that we've used all six heading levels (not necessarily in the correct way you should use headings!) to illustrate how they should look.
-
-##### Lists
-
-You can see examples of ordered and unordered lists above.
-
-###### Code Blocks
-
-This markdown editor allows for inline-code snippets
-
-`
+  // Convert in real time
+  function handleChange(e) {
+    setMarkdown(e.target.value)
+  }
 
   return (
     <>
       {/* Sidebar start */}
       {/* Sidebar end */}
-      {/* Header start */}
       <header>
         <div className="container">
           <div className="hamburger">
@@ -49,7 +30,7 @@ This markdown editor allows for inline-code snippets
           <img className="icon-document" src="src/assets/icon-document.svg" alt="" />
           <div>
             <h2 className="header__sub-title">Document Name</h2>
-            <h3 className="header__doc-title">Welcome.md</h3>
+            <h3 className="header__doc-title">{data[1].name}</h3>
           </div>
         </div>
 
@@ -61,28 +42,26 @@ This markdown editor allows for inline-code snippets
           </button>
         </div>
       </header>
-      {/* Header end */}
-      {/* Main start */}
+
       <main>
         <div>
           <div className="editor__title-container">
             <h3 className="editor__title">MARKDOWN</h3>
           </div>
-          <textarea value={placeHolder} name="" id="" cols="30" rows="10"></textarea>
+          <textarea value={markdown} onChange={handleChange} name="" id="" cols="50" rows="30"></textarea>
         </div>
-        <div>
+        <div className="preview">
           <div className="preview__title-container">
             <h3 className="preview__title">PREVIEW</h3>
             <img src="src/assets/icon-show-preview.svg" alt="" />
           </div>
-          <div>
-            <h1>Welcome to Markdown</h1>
-          </div>
+          <ReactMarkdown className="preview" children={markdown} />
         </div>
       </main>
-      Markdown Preview
-      {/* Main end */}
-      <footer>2023 Marcus Hugo. Made with love.</footer>
+
+      <footer>
+        <small>{currentYear} Marcus Hugo. Made with 🥵 and ☕️ .</small>
+      </footer>
     </>
   )
 }

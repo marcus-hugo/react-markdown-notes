@@ -79,6 +79,7 @@ textarea {
   color: var(--clr-grey-400);
   outline: none;
   border: none;
+  margin: 1rem;
 }
 
 .container {
@@ -131,6 +132,10 @@ textarea {
   align-items: center;
   gap: 7px;
   margin-right: 1rem;
+}
+
+.preview {
+  width: 100%;
 }
 
 .editor__title,
