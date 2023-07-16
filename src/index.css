@@ -57,8 +57,11 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-main {
-  display: flex;
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
 }
 
 header {
@@ -66,6 +69,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 14px 0;
 }
 
 textarea {
@@ -79,6 +83,10 @@ textarea {
   resize: none;
 }
 
+.app-container {
+  display: flex;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -86,6 +94,10 @@ textarea {
 
 .hamburger {
   padding: 0 21px 0 21px;
+}
+
+.editor-container {
+  display: flex;
 }
 
 .header__title {
@@ -136,8 +148,17 @@ textarea {
   background: var(--clr-hover);
 }
 
-.preview {
+.split {
+  width: 1px;
+  background: var(--clr-grey-600);
+}
+
+.preview-container {
   width: 100%;
+}
+
+.preview {
+  padding: 0 1rem;
 }
 
 .editor__title,
@@ -157,4 +178,55 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.sidebar-container {
+  padding: 0 20px;
+  min-width: 250px;
+  background: var(--clr-grey-900);
+}
+
+.sidebar__title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--clr-grey-500);
+  padding: 24px 0;
+}
+
+.sidebar__button {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px 44px;
+  background: var(--clr-accent);
+  border: none;
+  border-radius: 4px;
+}
+
+.sidebar__button:hover {
+  cursor: pointer;
+  background: var(--clr-hover);
+}
+
+.sidebar__ul {
+  padding: 0;
+}
+
+.sidebar__li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 148px;
+  padding: 12px 0;
+}
+
+.sidebar__note-date {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--clr-grey-500);
+  display: block;
+}
+
+.sidebar__note-title {
+  font-size: 15px;
 }

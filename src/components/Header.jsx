@@ -2,7 +2,7 @@ import React from "react"
 
 const Header = props => {
   const handleClick = () => {
-    console.log("i got clicked!")
+    console.log("saved!")
   }
 
   return (

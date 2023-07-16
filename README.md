@@ -14,7 +14,7 @@
 - CRUD operations
 - Save to local storage
 
-## Solutions
+## Solutions & Problems Solved
 
 `useEffect` will run once on load, which is perfect for the textarea placeholder value.
 
@@ -23,3 +23,7 @@ Set markdown `useState` initial value to an empty string, so that when you begin
 Found react-markdown to sanitize the HTML output. [https://github.com/remarkjs/react-markdown]
 
 For textarea [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea]
+
+```js
+new Date().toLocaleDateString()
+```
