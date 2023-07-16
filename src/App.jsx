@@ -18,7 +18,7 @@ function App() {
 
   // Create new note
   function newNote() {
-    let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: title, content: markdown }
+    let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "New Note", content: "type note here" }
     setNotes(oldNotes => [newNote, ...oldNotes])
     setTitle("New Note")
     setMarkdown("type note here")
@@ -28,6 +28,7 @@ function App() {
   // Update notes array with new note
   function saveNote(e) {
     e.preventDefault()
+
     let updatedNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: title, content: markdown }
     let savedNotes = []
     savedNotes = [updatedNote]
@@ -38,6 +39,23 @@ function App() {
     console.log("note updated and saved")
   }
 
+  // Delete current note
+  function deleteCurrentNote(e, currentNoteId) {
+    e.preventDefault()
+    setNotes(function (notes) {
+      newlySetNotes = []
+      for (let i = 0; i < notes.length; i++) {
+        if (notes[i].id === currentNoteId) {
+          newlySetNotes.unshift({ ...notes[i] })
+          console.log(notes[i].id)
+          console.log(currentNoteId)
+        }
+      }
+    })
+
+    console.log("note deleted")
+  }
+
   // Move edited note to top of list
   function updateNote(currentNoteId) {
     setNotes(function (notes) {
@@ -45,7 +63,8 @@ function App() {
 
       for (let i = 0; i < notes.length; i++) {
         if (notes[i].id === currentNoteId) {
-          newlyArrangedNotes.unshift({ ...notes[i], body: markdown })
+          newlyArrangedNotes.unshift({ ...notes[i] })
+
           setTitle(newlyArrangedNotes[0].title)
           setMarkdown(newlyArrangedNotes[0].content)
         } else {
@@ -62,7 +81,7 @@ function App() {
 
       <main>
         <form action="" onSubmit={saveNote}>
-          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} />
+          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} />
           <div className="editor-container">
             {/* Editor */}
             <div>
@@ -129,7 +148,7 @@ function Sidebar({ notes, newNote, updateNote, setNotes }) {
 }
 
 // Header Component
-function Header({ title, setTitle }) {
+function Header({ title, setTitle, deleteCurrentNote }) {
   return (
     <header>
       <div className="container">
@@ -142,15 +161,19 @@ function Header({ title, setTitle }) {
           <div className="vertical-seperator"></div>
         </div>
         <img className="icon-document" src="src/assets/icon-document.svg" alt="" />
-        <div>
-          <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Document Title" className="header__sub-title" />
-
-          {/* <h3 className="header__doc-title">{data[0].name}</h3> */}
+        <div className="container column">
+          <label htmlFor="title" className="header__input-label">
+            Document Name
+          </label>
+          <input id="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Document Title" className="header__sub-title header__input" />
         </div>
       </div>
 
       <div className="container">
-        <img className="icon-delete" src="src/assets/icon-delete.svg" alt="" />
+        <button className="header__delete-btn" onClick={deleteCurrentNote}>
+          <img className="icon-delete" src="src/assets/icon-delete.svg" alt="" />
+        </button>
+
         <button type="submit" className="header__button-save">
           <img src="src/assets/icon-save.svg" alt="" />
           <span> Save Changes</span>
