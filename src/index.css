@@ -57,6 +57,10 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+main {
+  width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -73,7 +77,6 @@ header {
 }
 
 textarea {
-  width: 50vw;
   height: 100vh;
   background: var(--clr-dark);
   color: var(--clr-grey-400);
@@ -90,6 +93,11 @@ textarea {
 .container {
   display: flex;
   align-items: center;
+}
+
+.column {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .hamburger {
@@ -123,12 +131,21 @@ textarea {
   color: var(--clr-grey-300);
 }
 
-.header__doc-title {
-  font-size: 15px;
+.header__input-label {
+  font-size: 14px;
+  color: var(--clr-grey-400);
 }
 
-.icon-delete {
-  padding: 0 24px 0 24px;
+.header__input {
+  border: none;
+  font-size: 15px;
+  caret-color: var(--clr-accent);
+  outline: none;
+  background: transparent;
+}
+
+.header__doc-title {
+  font-size: 15px;
 }
 
 .header__button-save {
@@ -146,6 +163,17 @@ textarea {
 .header__button-save:hover {
   cursor: pointer;
   background: var(--clr-hover);
+}
+
+.header__delete-btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  margin: 0 1rem;
+}
+
+.header__delete-btn:hover {
+  cursor: pointer;
 }
 
 .split {
@@ -186,6 +214,11 @@ textarea {
   background: var(--clr-grey-900);
 }
 
+.hide-sidebar {
+  position: absolute;
+  transform: translateX(-249px);
+}
+
 .sidebar__title {
   font-size: 14px;
   letter-spacing: 2px;
@@ -218,6 +251,10 @@ textarea {
   gap: 1rem;
   min-width: 148px;
   padding: 12px 0;
+}
+
+.sidebar__li:hover {
+  cursor: pointer;
 }
 
 .sidebar__note-date {
