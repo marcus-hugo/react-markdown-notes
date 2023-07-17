@@ -18,9 +18,9 @@ function App() {
 
   // Create new note
   function newNote() {
-    let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "New Note", content: "type note here" }
+    let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "New Note.md", content: "type note here" }
     setNotes(oldNotes => [newNote, ...oldNotes])
-    setTitle("New Note")
+    setTitle("New Note.md")
     setMarkdown("type note here")
     console.log("new note created")
   }
@@ -42,17 +42,13 @@ function App() {
   // Delete current note
   function deleteCurrentNote(e, currentNoteId) {
     e.preventDefault()
-    setNotes(function (notes) {
-      newlySetNotes = []
-      for (let i = 0; i < notes.length; i++) {
-        if (notes[i].id === currentNoteId) {
-          newlySetNotes.unshift({ ...notes[i] })
-          console.log(notes[i].id)
-          console.log(currentNoteId)
-        }
-      }
-    })
+    let deletedNotes = []
+    deletedNotes = [...notes]
+    deletedNotes.shift()
 
+    setNotes(deletedNotes)
+    setTitle("")
+    setMarkdown("")
     console.log("note deleted")
   }
 
@@ -129,14 +125,6 @@ function Sidebar({ notes, newNote, updateNote, setNotes }) {
                 <div>
                   <span className="sidebar__note-date">{note.createdAt}</span>
                   <h3 className="sidebar__note-title">{note.title}</h3>
-
-                  <button
-                    onClick={() => {
-                      setNotes(notes.filter(n => n.id !== note.id))
-                    }}
-                  >
-                    Delete
-                  </button>
                 </div>
               </li>
             )
@@ -153,7 +141,7 @@ function Header({ title, setTitle, deleteCurrentNote }) {
     <header>
       <div className="container">
         <div className="hamburger">
-          <img src="src/assets/icon-menu.svg" alt="" />
+          <img src="src/assets/icon-close.svg" alt="" />
         </div>
 
         <h1 className="header__title">MARKDOWN</h1>
