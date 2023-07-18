@@ -149,10 +149,12 @@ function Header({ title, setTitle, deleteCurrentNote, isOpen, handleToggle }) {
   return (
     <header>
       <div className="container">
-        <button onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
-          {isOpen && <img src="src/assets/icon-close.svg" />}
-          {!isOpen && <img src="src/assets/icon-menu.svg" />}
-        </button>
+        <div>
+          <button onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
+            {isOpen && <img src="src/assets/icon-close.svg" />}
+            {!isOpen && <img src="src/assets/icon-menu.svg" />}
+          </button>
+        </div>
 
         <h1 className="header__title">MARKDOWN</h1>
         <div>

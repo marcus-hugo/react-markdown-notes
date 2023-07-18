@@ -73,7 +73,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
 }
 
 textarea {
@@ -101,13 +100,15 @@ textarea {
 }
 
 .hamburger {
-  margin: 0 21px 0 21px;
+  padding: 14px 0;
+  margin: 0 16px 0 0;
   border: none;
   background: transparent;
 }
 
 .hamburger:hover {
   cursor: pointer;
+  background: var(--clr-accent);
 }
 
 .editor-container {
