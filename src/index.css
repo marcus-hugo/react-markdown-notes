@@ -101,7 +101,13 @@ textarea {
 }
 
 .hamburger {
-  padding: 0 21px 0 21px;
+  margin: 0 21px 0 21px;
+  border: none;
+  background: transparent;
+}
+
+.hamburger:hover {
+  cursor: pointer;
 }
 
 .editor-container {

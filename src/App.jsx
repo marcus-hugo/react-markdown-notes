@@ -10,6 +10,11 @@ function App() {
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || [{ id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "Demo Note", content: "type note here..." }])
   const [currentNoteId, setCurrentNoteId] = useState(notes[0]?.id || "")
   const currentNote = notes.find(note => note.id === currentNoteId) || notes[0]
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen)
+  }
 
   // When notes array is updated - set local storage to notes array
   useEffect(() => {
@@ -40,7 +45,7 @@ function App() {
   }
 
   // Delete current note
-  function deleteCurrentNote(e, currentNoteId) {
+  function deleteCurrentNote(e) {
     e.preventDefault()
     let deletedNotes = []
     deletedNotes = [...notes]
@@ -73,11 +78,11 @@ function App() {
 
   return (
     <div className="app-container">
-      <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} />
+      <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} />
 
       <main>
         <form action="" onSubmit={saveNote}>
-          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} />
+          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} />
           <div className="editor-container">
             {/* Editor */}
             <div>
@@ -105,44 +110,49 @@ function App() {
 }
 
 // Sidebar Component
-function Sidebar({ notes, newNote, updateNote, setNotes }) {
+function Sidebar({ notes, newNote, updateNote, setNotes, isOpen }) {
   return (
-    <div className="sidebar-container">
-      <div>
-        <h3 className="sidebar__title">MY DOCUMENTS</h3>
-      </div>
-      <div>
-        <button onClick={newNote} className="sidebar__button">
-          + New Document
-        </button>
-      </div>
-      <div>
-        <ul className="sidebar__ul">
-          {notes.map(note => {
-            return (
-              <li key={note.id} id={note.id} onClick={() => updateNote(note.id)} className="sidebar__li">
-                <img src="src/assets/icon-document.svg" alt="" />
-                <div>
-                  <span className="sidebar__note-date">{note.createdAt}</span>
-                  <h3 className="sidebar__note-title">{note.title}</h3>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-    </div>
+    <>
+      {isOpen && (
+        <div className="sidebar-container">
+          <div>
+            <h3 className="sidebar__title">MY DOCUMENTS</h3>
+          </div>
+          <div>
+            <button onClick={newNote} className="sidebar__button">
+              + New Document
+            </button>
+          </div>
+          <div>
+            <ul className="sidebar__ul">
+              {notes.map(note => {
+                return (
+                  <li key={note.id} id={note.id} onClick={() => updateNote(note.id)} className="sidebar__li">
+                    <img src="src/assets/icon-document.svg" alt="" />
+                    <div>
+                      <span className="sidebar__note-date">{note.createdAt}</span>
+                      <h3 className="sidebar__note-title">{note.title}</h3>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
 // Header Component
-function Header({ title, setTitle, deleteCurrentNote }) {
+function Header({ title, setTitle, deleteCurrentNote, isOpen, handleToggle }) {
   return (
     <header>
       <div className="container">
-        <div className="hamburger">
-          <img src="src/assets/icon-close.svg" alt="" />
-        </div>
+        <button onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
+          {isOpen && <img src="src/assets/icon-close.svg" />}
+          {!isOpen && <img src="src/assets/icon-menu.svg" />}
+        </button>
 
         <h1 className="header__title">MARKDOWN</h1>
         <div>
