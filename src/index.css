@@ -100,7 +100,7 @@ textarea {
 }
 
 .hamburger {
-  padding: 14px 0;
+  padding: 14px;
   margin: 0 16px 0 0;
   border: none;
   background: transparent;
@@ -177,6 +177,10 @@ textarea {
   background: transparent;
   border: none;
   margin: 0 1rem;
+}
+
+.trashcan:hover {
+  fill: var(--clr-accent);
 }
 
 .header__delete-btn:hover {
