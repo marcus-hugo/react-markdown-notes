@@ -11,6 +11,7 @@ function App() {
   const [currentNoteId, setCurrentNoteId] = useState(notes[0]?.id || "")
   const currentNote = notes.find(note => note.id === currentNoteId) || notes[0]
   const [isOpen, setIsOpen] = useState(false)
+  const [show, setShow] = useState(false)
 
   const handleToggle = e => {
     e.preventDefault()
@@ -43,6 +44,11 @@ function App() {
     let allSavedNotes = savedNotes.concat(newlySavedNotes)
     setNotes(allSavedNotes)
     console.log("note updated and saved")
+  }
+
+  // Show modal and confirm delete
+  function showModal() {
+    setShow(!show)
   }
 
   // Delete current note
@@ -79,11 +85,12 @@ function App() {
 
   return (
     <div className="app-container">
-      <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} />
-
       <main>
+        <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} />
+        {show && <Modal showModal={showModal} deleteCurrentNote={deleteCurrentNote} title={title} />}
+
         <form action="" onSubmit={saveNote}>
-          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} />
+          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} showModal={showModal} />
           <div className="editor-container">
             {/* Editor */}
             <div>
@@ -103,9 +110,27 @@ function App() {
             </div>
           </div>
         </form>
-
-        <Footer />
       </main>
+      <Footer />
+    </div>
+  )
+}
+
+// Modal Component
+function Modal({ showModal, deleteCurrentNote, title }) {
+  return (
+    <div className="modal" onClick={showModal}>
+      <div role="alertdialog" aria-modal="true" aria-labelledby="dialog_label" aria-describedby="dialog_desc" tabIndex="-1" className="modal__content">
+        <h3 id="dialog_label" className="modal__title">
+          Delete this document?
+        </h3>
+        <p id="dialog_desc" className="modal__text">
+          Are you sure you want to delete "{title}" document and its contents? This action cannot be reversed.
+        </p>
+        <button type="button" onClick={deleteCurrentNote} className="modal__button">
+          Confirm & Delete
+        </button>
+      </div>
     </div>
   )
 }
@@ -146,12 +171,12 @@ function Sidebar({ notes, newNote, updateNote, setNotes, isOpen }) {
 }
 
 // Header Component
-function Header({ title, setTitle, deleteCurrentNote, isOpen, handleToggle }) {
+function Header({ title, setTitle, deleteCurrentNote, isOpen, handleToggle, showModal }) {
   return (
     <header>
       <div className="container">
         <div>
-          <button onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
+          <button type="button" onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
             {isOpen && <img src="src/assets/icon-close.svg" />}
             {!isOpen && <img src="src/assets/icon-menu.svg" />}
           </button>
@@ -171,7 +196,7 @@ function Header({ title, setTitle, deleteCurrentNote, isOpen, handleToggle }) {
       </div>
 
       <div className="container">
-        <button className="header__delete-btn" onClick={deleteCurrentNote}>
+        <button className="header__delete-btn" onClick={showModal}>
           <svg width="18" height="20" xmlns="http://www.w3.org/2000/svg">
             <path className="trashcan" d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" fill="#7C8187" />
           </svg>

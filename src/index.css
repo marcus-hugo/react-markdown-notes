@@ -11,6 +11,7 @@
   --clr-dark: #151619;
   --clr-accent: #e46643;
   --clr-hover: #f39765;
+  --clr-modal-backdrop: rgb(124, 129, 135, 40%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,7 +59,9 @@ body {
 }
 
 main {
+  display: flex;
   width: 100%;
+  height: calc(100vh - 49.5px);
 }
 
 h1,
@@ -75,8 +78,11 @@ header {
   justify-content: space-between;
 }
 
+form {
+  flex-grow: 1;
+}
+
 textarea {
-  height: 100vh;
   background: var(--clr-dark);
   color: var(--clr-grey-400);
   outline: none;
@@ -87,6 +93,56 @@ textarea {
 
 .app-container {
   display: flex;
+  flex-direction: column;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background: var(--clr-modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__content {
+  position: absolute;
+  z-index: 2;
+  background: var(--clr-grey-900);
+  width: 343px;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.modal__title {
+  color: var(--clr-light);
+  font-size: 20px;
+}
+
+.modal__text {
+  color: var(--clr-grey-400);
+  font-size: 14px;
+  font-family: Roboto Slab, sans-serif;
+  line-height: 24px;
+  padding: 0px 2px 0px 0px;
+}
+
+.modal__button {
+  background: var(--clr-accent);
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.modal__button:hover {
+  cursor: pointer;
+  background: var(--clr-hover);
 }
 
 .container {
@@ -179,12 +235,12 @@ textarea {
   margin: 0 1rem;
 }
 
-.trashcan:hover {
-  fill: var(--clr-accent);
-}
-
 .header__delete-btn:hover {
   cursor: pointer;
+}
+
+.header__delete-btn:hover .trashcan {
+  fill: var(--clr-accent);
 }
 
 .split {
@@ -277,4 +333,12 @@ textarea {
 
 .sidebar__note-title {
   font-size: 15px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-grey-800);
+  padding: 1rem 0;
 }
