@@ -1,15 +1,13 @@
-import React from "react"
-
-const Header = props => {
-  const handleClick = () => {
-    console.log("saved!")
-  }
-
+// Header Component
+function Header({ title, setTitle, isOpen, handleToggle, handleShowModal }) {
   return (
     <header>
       <div className="container">
-        <div className="hamburger">
-          <img src="src/assets/icon-menu.svg" alt="" />
+        <div>
+          <button type="button" onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
+            {isOpen && <img src="src/assets/icon-close.svg" />}
+            {!isOpen && <img src="src/assets/icon-menu.svg" />}
+          </button>
         </div>
 
         <h1 className="header__title">MARKDOWN</h1>
@@ -17,15 +15,22 @@ const Header = props => {
           <div className="vertical-seperator"></div>
         </div>
         <img className="icon-document" src="src/assets/icon-document.svg" alt="" />
-        <div>
-          <h2 className="header__sub-title">Document Name</h2>
-          <h3 className="header__doc-title">{props.data[1].name}</h3>
+        <div className="container column">
+          <label htmlFor="title" className="header__input-label">
+            Document Name
+          </label>
+          <input id="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Document Title" className="header__sub-title header__input" />
         </div>
       </div>
 
       <div className="container">
-        <img className="icon-delete" src="src/assets/icon-delete.svg" alt="" />
-        <button onClick={handleClick} className="header__button-save">
+        <button className="header__delete-btn" onClick={handleShowModal}>
+          <svg width="18" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path className="trashcan" d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" fill="#7C8187" />
+          </svg>
+        </button>
+
+        <button type="submit" className="header__button-save">
           <img src="src/assets/icon-save.svg" alt="" />
           <span> Save Changes</span>
         </button>

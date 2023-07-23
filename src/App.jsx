@@ -1,6 +1,9 @@
 import { React, useState, useEffect } from "react"
 import ReactMarkdown from "react-markdown"
 import data from "./data.json"
+import Sidebar from "./components/Sidebar"
+import Modal from "./components/Modal"
+import Header from "./components/Header"
 import Footer from "./components/Footer"
 import { nanoid } from "nanoid"
 
@@ -140,101 +143,6 @@ function App() {
       </main>
       <Footer />
     </div>
-  )
-}
-
-// Modal Component
-function Modal({ handleShowModal, deleteCurrentNote, title }) {
-  return (
-    <div className="modal" onClick={handleShowModal}>
-      <div role="alertdialog" aria-modal="true" aria-labelledby="dialog_label" aria-describedby="dialog_desc" tabIndex="-1" className="modal__content">
-        <h3 id="dialog_label" className="modal__title">
-          Delete this document?
-        </h3>
-        <p id="dialog_desc" className="modal__text">
-          Are you sure you want to delete "{title}" document and its contents? This action cannot be reversed.
-        </p>
-        <button type="button" onClick={deleteCurrentNote} className="modal__button">
-          Confirm & Delete
-        </button>
-      </div>
-    </div>
-  )
-}
-
-// Sidebar Component
-function Sidebar({ notes, newNote, updateNote, isOpen }) {
-  return (
-    <>
-      {isOpen && (
-        <div className="sidebar-container">
-          <div>
-            <h3 className="sidebar__title">MY DOCUMENTS</h3>
-          </div>
-          <div>
-            <button onClick={newNote} className="sidebar__button">
-              + New Document
-            </button>
-          </div>
-          <div>
-            <ul className="sidebar__ul">
-              {notes.map(note => {
-                return (
-                  <li key={note.id} id={note.id} onClick={() => updateNote(note.id)} className="sidebar__li">
-                    <img src="src/assets/icon-document.svg" alt="" />
-                    <div>
-                      <span className="sidebar__note-date">{note.createdAt}</span>
-                      <h3 className="sidebar__note-title">{note.title}</h3>
-                    </div>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-        </div>
-      )}
-    </>
-  )
-}
-
-// Header Component
-function Header({ title, setTitle, isOpen, handleToggle, handleShowModal }) {
-  return (
-    <header>
-      <div className="container">
-        <div>
-          <button type="button" onClick={handleToggle} className="hamburger" aria-label="toggle navigation">
-            {isOpen && <img src="src/assets/icon-close.svg" />}
-            {!isOpen && <img src="src/assets/icon-menu.svg" />}
-          </button>
-        </div>
-
-        <h1 className="header__title">MARKDOWN</h1>
-        <div>
-          <div className="vertical-seperator"></div>
-        </div>
-        <img className="icon-document" src="src/assets/icon-document.svg" alt="" />
-        <div className="container column">
-          <label htmlFor="title" className="header__input-label">
-            Document Name
-          </label>
-          <input id="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Document Title" className="header__sub-title header__input" />
-        </div>
-      </div>
-
-      <div className="container">
-        <button className="header__delete-btn" onClick={handleShowModal}>
-          <svg width="18" height="20" xmlns="http://www.w3.org/2000/svg">
-            <path className="trashcan" d="M7 16a1 1 0 0 0 1-1V9a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1ZM17 4h-4V3a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v1H1a1 1 0 1 0 0 2h1v11a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6h1a1 1 0 0 0 0-2ZM7 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H7V3Zm7 14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6h10v11Zm-3-1a1 1 0 0 0 1-1V9a1 1 0 0 0-2 0v6a1 1 0 0 0 1 1Z" fill="#7C8187" />
-          </svg>
-        </button>
-
-        <button type="submit" className="header__button-save">
-          <img src="src/assets/icon-save.svg" alt="" />
-          <span> Save Changes</span>
-        </button>
-      </div>
-    </header>
   )
 }
 
