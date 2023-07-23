@@ -1,0 +1,35 @@
+.editor-container {
+  display: flex;
+}
+
+.split {
+  width: 1px;
+  background: var(--clr-grey-600);
+}
+
+.preview-container {
+  width: 100%;
+}
+
+.preview {
+  padding: 0 1rem;
+}
+
+.editor__title,
+.preview__title {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.editor__title-container,
+.preview__title-container {
+  background: var(--clr-grey-900);
+  padding: 10px 1rem;
+}
+
+.preview__title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

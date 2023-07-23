@@ -1,0 +1,83 @@
+.hamburger {
+  padding: 14px;
+  margin: 0 16px 0 0;
+  border: none;
+  background: transparent;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+  background: var(--clr-accent);
+}
+
+.header__title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  padding: 0 29px 0 0;
+}
+
+.vertical-seperator {
+  width: 1px;
+  height: 40px;
+  background: var(--clr-grey-600);
+}
+
+.icon-document {
+  padding: 0 21px 0 21px;
+}
+
+.header__sub-title {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--clr-grey-300);
+}
+
+.header__input-label {
+  font-size: 14px;
+  color: var(--clr-grey-400);
+}
+
+.header__input {
+  border: none;
+  font-size: 15px;
+  caret-color: var(--clr-accent);
+  outline: none;
+  background: transparent;
+}
+
+.header__doc-title {
+  font-size: 15px;
+}
+
+.header__button-save {
+  background: var(--clr-accent);
+  color: inherit;
+  border-radius: 4px;
+  border-style: none;
+  padding: 10px 17px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-right: 1rem;
+}
+
+.header__button-save:hover {
+  cursor: pointer;
+  background: var(--clr-hover);
+}
+
+.header__delete-btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  margin: 0 1rem;
+}
+
+.header__delete-btn:hover {
+  cursor: pointer;
+}
+
+.header__delete-btn:hover .trashcan {
+  fill: var(--clr-accent);
+}

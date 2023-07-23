@@ -1,0 +1,59 @@
+.sidebar-container {
+  padding: 0 20px;
+  min-width: 250px;
+  background: var(--clr-grey-900);
+}
+
+.hide-sidebar {
+  position: absolute;
+  transform: translateX(-249px);
+}
+
+.sidebar__title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--clr-grey-500);
+  padding: 24px 0;
+}
+
+.sidebar__button {
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px 44px;
+  background: var(--clr-accent);
+  border: none;
+  border-radius: 4px;
+}
+
+.sidebar__button:hover {
+  cursor: pointer;
+  background: var(--clr-hover);
+}
+
+.sidebar__ul {
+  padding: 0;
+}
+
+.sidebar__li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 148px;
+  padding: 12px 0;
+}
+
+.sidebar__li:hover {
+  cursor: pointer;
+}
+
+.sidebar__note-date {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--clr-grey-500);
+  display: block;
+}
+
+.sidebar__note-title {
+  font-size: 15px;
+}
