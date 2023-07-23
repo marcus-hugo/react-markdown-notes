@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react"
-
+import useMediaQuery from "./hooks/useMediaQuery"
 import data from "./data.json"
 import Sidebar from "./components/Sidebar"
 import Modal from "./components/Modal"
@@ -12,11 +12,12 @@ function App() {
   const [title, setTitle] = useState("")
   const [markdown, setMarkdown] = useState("")
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || [{ id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document", content: "type note here..." }])
-  const [currentNoteId, setCurrentNoteId] = useState(notes[0]?.id || "")
-  const currentNote = notes.find(note => note.id === currentNoteId) || notes[0]
   const [isOpen, setIsOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [showEditor, setShowEditor] = useState(true)
+  const isTablet = useMediaQuery("(min-width: 768px)")
+  const isDesktop = useMediaQuery("(min-width: 1440px)")
+  console.log(isDesktop)
 
   // Show or hide sidebar
   function handleToggle(e) {
@@ -103,7 +104,7 @@ function App() {
         {showModal && <Modal handleShowModal={handleShowModal} deleteCurrentNote={deleteCurrentNote} title={title} />}
 
         <form action="" onSubmit={saveNote}>
-          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} />
+          <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} isTablet={isTablet} isDesktop={isDesktop} />
           <Editor showEditor={showEditor} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} />
         </form>
       </main>
