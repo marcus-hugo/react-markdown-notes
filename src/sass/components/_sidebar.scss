@@ -47,6 +47,10 @@
   cursor: pointer;
 }
 
+.sidebar__li:hover .sidebar__note-title {
+  color: var(--clr-accent);
+}
+
 .sidebar__note-date {
   font-size: 13px;
   font-weight: 300;

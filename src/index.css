@@ -140,6 +140,19 @@ textarea {
   justify-content: space-between;
 }
 
+.preview__button {
+  background: transparent;
+  border: none;
+}
+
+.preview__button:hover {
+  cursor: pointer;
+}
+
+.preview__button:hover .show-icon {
+  fill: var(--clr-accent);
+}
+
 .hamburger {
   padding: 14px;
   margin: 0 16px 0 0;
@@ -271,6 +284,10 @@ textarea {
 
 .sidebar__li:hover {
   cursor: pointer;
+}
+
+.sidebar__li:hover .sidebar__note-title {
+  color: var(--clr-accent);
 }
 
 .sidebar__note-date {

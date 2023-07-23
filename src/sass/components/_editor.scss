@@ -33,3 +33,16 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.preview__button {
+  background: transparent;
+  border: none;
+}
+
+.preview__button:hover {
+  cursor: pointer;
+}
+
+.preview__button:hover .show-icon {
+  fill: var(--clr-accent);
+}
