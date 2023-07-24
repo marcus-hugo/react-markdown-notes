@@ -99,6 +99,9 @@ textarea {
   align-items: flex-start;
 }
 
+.editor-container {
+  height: calc(100vh - 127.5px);
+}
 @media (min-width: 767px) {
   .editor-container {
     display: flex;
@@ -115,7 +118,7 @@ textarea {
 }
 
 .preview {
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .editor__title,

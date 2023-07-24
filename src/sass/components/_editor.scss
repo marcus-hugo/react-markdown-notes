@@ -1,4 +1,5 @@
 .editor-container {
+  height: calc(100vh - 127.5px);
   @media (min-width: 767px) {
     display: flex;
   }
@@ -14,7 +15,7 @@
 }
 
 .preview {
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .editor__title,

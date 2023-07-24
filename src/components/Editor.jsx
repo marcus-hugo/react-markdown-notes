@@ -48,7 +48,7 @@ function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile
               <div className="editor__title-container">
                 <h3 className="editor__title">MARKDOWN</h3>
               </div>
-              <textarea placeholder={markdown} value={markdown} onChange={e => setMarkdown(e.target.value)} name="" id="markdown" cols="50" rows="30"></textarea>
+              <textarea placeholder={markdown} value={markdown} onChange={e => setMarkdown(e.target.value)} name="" id="markdown" cols="44" rows="30"></textarea>
             </div>
           )}
 
