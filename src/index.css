@@ -39,11 +39,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body,
-html {
-  overflow-x: hidden;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -208,6 +203,7 @@ textarea {
   caret-color: var(--clr-accent);
   outline: none;
   background: transparent;
+  width: 150px;
 }
 
 .header__doc-title {
