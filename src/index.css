@@ -162,6 +162,12 @@ textarea {
   width: 56px;
   height: 56px;
 }
+@media (min-width: 768px) {
+  .hamburger {
+    height: 72px;
+    width: 72px;
+  }
+}
 
 .hamburger:hover {
   cursor: pointer;
@@ -238,6 +244,12 @@ textarea {
   gap: 7px;
   margin-right: 1rem;
 }
+@media (min-width: 768px) {
+  .header__button-save {
+    width: auto;
+    padding: 0 1.07rem;
+  }
+}
 
 .header__button-save:hover {
   cursor: pointer;
@@ -274,6 +286,7 @@ textarea {
   font-size: 15px;
   padding: 10px 44px;
   background: var(--clr-accent);
+  color: inherit;
   border: none;
   border-radius: 4px;
 }

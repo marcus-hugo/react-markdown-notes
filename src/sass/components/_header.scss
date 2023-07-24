@@ -1,9 +1,13 @@
 .hamburger {
   border: none;
   background: transparent;
-  // padding: 1.08rem 1rem;
   width: 56px;
   height: 56px;
+
+  @media (min-width: 768px) {
+    height: 72px;
+    width: 72px;
+  }
 }
 
 .hamburger:hover {
@@ -80,6 +84,11 @@
   justify-content: center;
   gap: 7px;
   margin-right: 1rem;
+
+  @media (min-width: 768px) {
+    width: auto;
+    padding: 0 1.07rem;
+  }
 }
 
 .header__button-save:hover {

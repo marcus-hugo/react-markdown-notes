@@ -35,7 +35,7 @@ function Sidebar({ notes, newNote, updateNote, isOpen, isMobile }) {
           <div className="toggle-switch-wrapper">
             <img src="../src/assets/icon-dark-mode.svg" alt="" />
 
-            <label className="toggle-switch" htmlfor="theme-toggle">
+            <label className="toggle-switch" htmlFor="theme-toggle">
               <input type="checkbox" className="toggle-switch__input" id="theme-toggle" title="Toggles light and dark" role="switch" aria-checked="false" aria-live="polite" />
               <span className="toggle-switch__slider"></span>
             </label>
