@@ -1,8 +1,9 @@
 .hamburger {
-  width: 56px;
-  height: 56px;
   border: none;
   background: transparent;
+  // padding: 1.08rem 1rem;
+  width: 56px;
+  height: 56px;
 }
 
 .hamburger:hover {
@@ -24,7 +25,7 @@
 }
 
 .icon-document {
-  padding: 0 21px 0 21px;
+  padding: 0 1rem;
 }
 
 .header__sub-title {
@@ -51,13 +52,28 @@
   font-size: 15px;
 }
 
+.header__delete-btn {
+  padding: 0 1.5rem;
+  background: transparent;
+  border: none;
+}
+
+.header__delete-btn:hover {
+  cursor: pointer;
+}
+
+.header__delete-btn:hover .trashcan {
+  fill: var(--clr-accent);
+}
+
 .header__button-save {
   background: var(--clr-accent);
   color: inherit;
   border-radius: 4px;
   border-style: none;
-  padding: 1rem;
-  margin: 8px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,19 +84,4 @@
 .header__button-save:hover {
   cursor: pointer;
   background: var(--clr-hover);
-}
-
-.header__delete-btn {
-  padding: 0;
-  background: transparent;
-  border: none;
-  margin: 0 1rem;
-}
-
-.header__delete-btn:hover {
-  cursor: pointer;
-}
-
-.header__delete-btn:hover .trashcan {
-  fill: var(--clr-accent);
 }

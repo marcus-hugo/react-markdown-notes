@@ -1,11 +1,12 @@
 // Sidebar Component
-function Sidebar({ notes, newNote, updateNote, isOpen }) {
+function Sidebar({ notes, newNote, updateNote, isOpen, isMobile }) {
   return (
     <>
       {isOpen && (
         <div className="sidebar-container">
           <div>
             <div>
+              {isMobile && <h1 className="header__title sidebar__title-mobile">MARKDOWN</h1>}
               <h3 className="sidebar__title">MY DOCUMENTS</h3>
             </div>
 

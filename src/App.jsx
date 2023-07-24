@@ -111,7 +111,7 @@ function App() {
   return (
     <div className="app-container">
       <main>
-        <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} />
+        <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} isMobile={isMobile} />
         {showModal && <Modal handleShowModal={handleShowModal} deleteCurrentNote={deleteCurrentNote} title={title} />}
 
         <form action="" onSubmit={saveNote}>
