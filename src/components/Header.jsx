@@ -1,5 +1,5 @@
 // Header Component
-function Header({ title, setTitle, isOpen, handleToggle, handleShowModal }) {
+function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTablet, isDesktop }) {
   return (
     <header>
       <div className="container">
@@ -9,15 +9,20 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal }) {
             {!isOpen && <img src="src/assets/icon-menu.svg" />}
           </button>
         </div>
+        {isTablet && (
+          <>
+            <h1 className="header__title">MARKDOWN</h1>
+            <div>
+              <div className="vertical-seperator"></div>
+            </div>
+          </>
+        )}
 
-        <h1 className="header__title">MARKDOWN</h1>
-        <div>
-          <div className="vertical-seperator"></div>
-        </div>
         <img className="icon-document" src="src/assets/icon-document.svg" alt="" />
         <div className="container column">
           <label htmlFor="title" className="header__input-label">
-            Document Name
+            {isTablet && "Document Name"}
+            {/* Document Name */}
           </label>
           <input id="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Document Title" className="header__sub-title header__input" />
         </div>
@@ -32,7 +37,7 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal }) {
 
         <button type="submit" className="header__button-save">
           <img src="src/assets/icon-save.svg" alt="" />
-          <span> Save Changes</span>
+          {isTablet && <span> Save Changes</span>}
         </button>
       </div>
     </header>

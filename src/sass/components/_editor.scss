@@ -1,5 +1,7 @@
 .editor-container {
-  display: flex;
+  @media (min-width: 767px) {
+    display: flex;
+  }
 }
 
 .split {
@@ -27,22 +29,25 @@
   background: var(--clr-grey-900);
   padding: 10px 1rem;
 }
-
+.editor__title-container,
 .preview__title-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.editor__button,
 .preview__button {
   background: transparent;
   border: none;
 }
 
+.editor__button,
 .preview__button:hover {
   cursor: pointer;
 }
 
+.editor__button:hover .show-icon,
 .preview__button:hover .show-icon {
   fill: var(--clr-accent);
 }

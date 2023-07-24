@@ -31,12 +31,12 @@ function Sidebar({ notes, newNote, updateNote, isOpen }) {
               </ul>
             </div>
           </div>
-          <div class="toggle-switch-wrapper">
+          <div className="toggle-switch-wrapper">
             <img src="../src/assets/icon-dark-mode.svg" alt="" />
 
-            <label class="toggle-switch" for="theme-toggle">
-              <input type="checkbox" class="toggle-switch__input" id="theme-toggle" title="Toggles light and dark" role="switch" type="checkbox" aria-checked="false" aria-live="polite" />
-              <span class="toggle-switch__slider"></span>
+            <label className="toggle-switch" htmlfor="theme-toggle">
+              <input type="checkbox" className="toggle-switch__input" id="theme-toggle" title="Toggles light and dark" role="switch" aria-checked="false" aria-live="polite" />
+              <span className="toggle-switch__slider"></span>
             </label>
             <img src="../src/assets/icon-light-mode.svg" alt="" />
           </div>

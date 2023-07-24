@@ -15,9 +15,12 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [showModal, setShowModal] = useState(false)
   const [showEditor, setShowEditor] = useState(true)
+
+  const [showPreview, setShowPreview] = useState(true)
+  const [hidePreview, setHidePreview] = useState(false)
+  const isMobile = useMediaQuery("(max-width: 767px)")
   const isTablet = useMediaQuery("(min-width: 768px)")
   const isDesktop = useMediaQuery("(min-width: 1440px)")
-  console.log(isDesktop)
 
   // Show or hide sidebar
   function handleToggle(e) {
@@ -34,6 +37,14 @@ function App() {
   function handlePreviewMode(e) {
     e.preventDefault()
     setShowEditor(!showEditor)
+  }
+
+  // Show only Preview or Editor
+  function handleShowPreview(e) {
+    e.preventDefault()
+    setShowPreview(!showPreview)
+    setHidePreview(!hidePreview)
+    console.log(showPreview)
   }
 
   // When notes array is updated - set local storage to notes array
@@ -105,7 +116,7 @@ function App() {
 
         <form action="" onSubmit={saveNote}>
           <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} isTablet={isTablet} isDesktop={isDesktop} />
-          <Editor showEditor={showEditor} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} />
+          <Editor showEditor={showEditor} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} isMobile={isMobile} showPreview={showPreview} handleShowPreview={handleShowPreview} hidePreview={hidePreview} />
         </form>
       </main>
       <Footer />
