@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  background: var(--clr-dark);
+  background: var(--background);
   color: var(--clr-light);
   font-family: Roboto, sans-serif;
 }
 
 main {
+  flex-grow: 1;
   display: flex;
   width: 100%;
-  height: calc(100vh - 49.5px);
 }
 
 h1,
@@ -27,13 +27,4 @@ header {
 
 form {
   flex-grow: 1;
-}
-
-textarea {
-  background: var(--clr-dark);
-  color: var(--clr-grey-400);
-  outline: none;
-  border: none;
-  margin: 1rem;
-  resize: none;
 }

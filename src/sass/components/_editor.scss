@@ -1,5 +1,18 @@
 .editor-container {
-  height: calc(100vh - 127.5px);
+  // height: calc(90%);
+  textarea {
+    background: var(--editor-bg);
+    color: var(--editor-clr);
+    outline: none;
+    border: none;
+    // margin: 1rem;
+    // resize: none;
+    display: block;
+    overflow: auto;
+    padding: 1rem;
+    // height: calc(100% - 49.5px);
+  }
+
   @media (min-width: 767px) {
     display: flex;
   }
@@ -15,7 +28,94 @@
 }
 
 .preview {
+  background: var(--preview-bg);
   padding: 1rem;
+  font-family: Roboto Slab;
+
+  h1 {
+    color: var(--preview-h1);
+  }
+
+  h2 {
+    color: var(--preview-h2);
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+
+  h3 {
+    color: var(--preview-h3);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  h4 {
+    color: var(--preview-h4);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  h5 {
+    color: var(--preview-h5);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  h6 {
+    color: var(--preview-h6);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--clr-accent);
+  }
+
+  p {
+    color: var(--preview-p);
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+
+  a {
+    color: var(--preview-a);
+  }
+
+  pre {
+    background: var(--preview-pre-bg);
+    padding: 1.5rem 1rem;
+  }
+
+  code {
+    color: var(--preview-code-clr);
+  }
+
+  ul {
+    padding: 0 0 0 30px;
+  }
+
+  li {
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--preview-li);
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  ul li::before {
+    content: "• ";
+    color: var(--clr-accent);
+  }
+
+  blockquote {
+    background: var(--preview-blockquote-bg);
+    margin: 0 0 1.25rem 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--clr-accent);
+    border-radius: 4px 0px 0px 4px;
+
+    p {
+      color: var(--preview-blockquote-clr);
+    }
+  }
 }
 
 .editor__title,
@@ -23,7 +123,7 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 2px;
-  color: var(--clr-grey-400);
+  color: var(--preview-title-clr);
   padding: 0.825rem 1rem;
 }
 
@@ -36,7 +136,7 @@
 
 .editor__title-container,
 .preview__title-container {
-  background: var(--clr-grey-900);
+  background: var(--preview-title-bg);
 }
 
 .editor__button,
