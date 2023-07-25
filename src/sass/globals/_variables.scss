@@ -11,7 +11,8 @@
   --clr-dark: #151619;
   --clr-accent: #e46643;
   --clr-hover: #f39765;
-  --clr-modal-backdrop: rgb(124, 129, 135, 40%);
+  --clr-modal-backdrop-when-dark: rgb(124, 129, 135, 40%);
+  --clr-modal-backdrop-when-light: rgb(21, 22, 25, 60%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,6 +39,10 @@
     --preview-blockquote-clr: var(--clr-grey-400);
     --preview-pre-bg: var(--clr-grey-800);
     --preview-code-clr: var(--clr-light);
+    --modal-backdrop: var(--clr-modal-backdrop-when-dark);
+    --modal-bg: var(--clr-grey-900);
+    --modal-clr: var(--clr-grey-400);
+    --modal-title-clr: var(--clr-light);
   }
 }
 
@@ -65,5 +70,9 @@
     --preview-blockquote-clr: var(--clr-grey-700);
     --preview-pre-bg: var(--clr-grey-200);
     --preview-code-clr: var(--clr-grey-700);
+    --modal-backdrop: var(--clr-modal-backdrop-when-light);
+    --modal-bg: var(--clr-light);
+    --modal-clr: var(--clr-grey-500);
+    --modal-title-clr: var(--clr-grey-700);
   }
 }
