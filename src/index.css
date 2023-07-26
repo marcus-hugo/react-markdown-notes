@@ -392,7 +392,6 @@ form {
   padding: 0;
   font-size: 15px;
   caret-color: var(--clr-accent);
-  outline: none;
   background: transparent;
   width: 150px;
 }

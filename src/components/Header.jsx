@@ -1,5 +1,5 @@
 // Header Component
-function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTablet, isDesktop }) {
+function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTablet }) {
   return (
     <header>
       <div className="container">
@@ -22,7 +22,6 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTabl
         <div className="container column">
           <label htmlFor="title" className="header__input-label">
             {isTablet && "Document Name"}
-            {/* Document Name */}
           </label>
           <input id="title" value={title} onChange={e => setTitle(e.target.value)} placeholder="Document Title" className="header__sub-title header__input" />
         </div>
@@ -36,7 +35,7 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTabl
           </svg>
         </button>
 
-        <button type="submit" className="header__button-save">
+        <button type="submit" className="header__button-save" aria-label="save current document">
           <img src="src/assets/icon-save.svg" alt="" />
           {isTablet && <span> Save Changes</span>}
         </button>
