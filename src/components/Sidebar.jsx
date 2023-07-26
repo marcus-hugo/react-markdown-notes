@@ -1,5 +1,7 @@
+import ToggleSwitch from "./ToggleSwitch"
+
 // Sidebar Component
-function Sidebar({ notes, newNote, updateNote, isOpen, isMobile }) {
+function Sidebar({ notes, newNote, updateNote, isOpen, isMobile, theme, switchTheme }) {
   return (
     <>
       {isOpen && (
@@ -32,15 +34,7 @@ function Sidebar({ notes, newNote, updateNote, isOpen, isMobile }) {
               </ul>
             </div>
           </div>
-          <div className="toggle-switch-wrapper">
-            <img src="../src/assets/icon-dark-mode.svg" alt="" />
-
-            <label className="toggle-switch" htmlFor="theme-toggle">
-              <input type="checkbox" className="toggle-switch__input" id="theme-toggle" title="Toggles light and dark" role="switch" aria-checked="false" aria-live="polite" />
-              <span className="toggle-switch__slider"></span>
-            </label>
-            <img src="../src/assets/icon-light-mode.svg" alt="" />
-          </div>
+          <ToggleSwitch theme={theme} switchTheme={switchTheme} />
         </div>
       )}
     </>

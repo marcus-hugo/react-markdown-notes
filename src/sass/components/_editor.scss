@@ -1,16 +1,11 @@
 .editor-container {
-  // height: calc(90%);
   textarea {
     background: var(--editor-bg);
     color: var(--editor-clr);
-    outline: none;
     border: none;
-    // margin: 1rem;
-    // resize: none;
     display: block;
     overflow: auto;
     padding: 1rem;
-    // height: calc(100% - 49.5px);
   }
 
   @media (min-width: 767px) {

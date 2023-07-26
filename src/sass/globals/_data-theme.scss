@@ -1,0 +1,57 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+  --background: var(--clr-dark);
+  --color: var(--clr-light);
+  --header-bg: var(--clr-grey-800);
+  --editor-bg: var(--clr-dark);
+  --editor-clr: var(--clr-grey-400);
+  --preview-bg: var(--clr-dark);
+  --preview-title-bg: var(--clr-grey-900);
+  --preview-title-clr: var(--clr-grey-400);
+  --preview-h1: var(--clr-light);
+  --preview-h2: var(--clr-light);
+  --preview-h3: var(--clr-light);
+  --preview-h4: var(--clr-light);
+  --preview-h5: var(--clr-light);
+  --preview-h6: var(--clr-accent);
+  --preview-p: var(--clr-grey-400);
+  --preview-li: var(--clr-grey-400);
+  --preview-a: var(--clr-light);
+  --preview-blockquote-bg: var(--clr-grey-800);
+  --preview-blockquote-clr: var(--clr-grey-400);
+  --preview-pre-bg: var(--clr-grey-800);
+  --preview-code-clr: var(--clr-light);
+  --modal-backdrop: var(--clr-modal-backdrop-when-dark);
+  --modal-bg: var(--clr-grey-900);
+  --modal-clr: var(--clr-grey-400);
+  --modal-title-clr: var(--clr-light);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: var(--clr-light);
+  --color: var(--clr-dark);
+  --header-bg: var(--clr-grey-800);
+  --editor-bg: var(--clr-light);
+  --editor-clr: var(--clr-grey-700);
+  --preview-bg: var(--clr-light);
+  --preview-title-bg: var(--clr-grey-200);
+  --preview-title-clr: var(--clr-grey-500);
+  --preview-h1: var(--clr-grey-700);
+  --preview-h2: var(--clr-dark);
+  --preview-h3: var(--clr-grey-700);
+  --preview-h4: var(--clr-grey-700);
+  --preview-h5: var(--clr-grey-700);
+  --preview-h6: var(--clr-accent);
+  --preview-p: var(--clr-grey-500);
+  --preview-li: var(--clr-grey-500);
+  --preview-a: var(--clr-dark);
+  --preview-blockquote-bg: var(--clr-grey-200);
+  --preview-blockquote-clr: var(--clr-grey-700);
+  --preview-pre-bg: var(--clr-grey-200);
+  --preview-code-clr: var(--clr-grey-700);
+  --modal-backdrop: var(--clr-modal-backdrop-when-light);
+  --modal-bg: var(--clr-light);
+  --modal-clr: var(--clr-grey-500);
+  --modal-title-clr: var(--clr-grey-700);
+}

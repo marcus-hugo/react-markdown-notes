@@ -7,6 +7,7 @@ import Header from "./components/Header"
 import Editor from "./components/Editor"
 import Footer from "./components/Footer"
 import { nanoid } from "nanoid"
+import useLocalStorage from "use-local-storage"
 
 function App() {
   const [title, setTitle] = useState("")
@@ -21,6 +22,17 @@ function App() {
   const isMobile = useMediaQuery("(max-width: 767px)")
   const isTablet = useMediaQuery("(min-width: 768px)")
   const isDesktop = useMediaQuery("(min-width: 1440px)")
+
+  const mql = window.matchMedia("(prefers-color-scheme: dark)")
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches // true
+  const [theme, setTheme] = useLocalStorage("theme", defaultDark ? "dark" : "light") // true = 'dark'
+
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light"
+    setTheme(newTheme)
+  }
+
+  mql.addEventListener("change", switchTheme)
 
   // Show or hide sidebar
   function handleToggle(e) {
@@ -109,12 +121,12 @@ function App() {
 
   // Main Return
   return (
-    <div className="app-container">
+    <div className="app-container" data-theme={theme}>
       <main>
-        <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} isMobile={isMobile} />
+        <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} isMobile={isMobile} theme={theme} switchTheme={switchTheme} />
         {showModal && <Modal handleShowModal={handleShowModal} deleteCurrentNote={deleteCurrentNote} title={title} />}
 
-        <form action="" onSubmit={saveNote}>
+        <form action="" onSubmit={saveNote} className="form">
           <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} isTablet={isTablet} isDesktop={isDesktop} />
           <Editor showEditor={showEditor} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} isMobile={isMobile} showPreview={showPreview} handleShowPreview={handleShowPreview} hidePreview={hidePreview} />
         </form>
