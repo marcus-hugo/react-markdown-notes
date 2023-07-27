@@ -97,6 +97,7 @@ function App() {
     setNotes(deletedNotes)
     setTitle("")
     setMarkdown("")
+    handleShowModal()
     console.log("note deleted")
   }
 
@@ -126,7 +127,7 @@ function App() {
         <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} isMobile={isMobile} theme={theme} switchTheme={switchTheme} />
         {showModal && <Modal handleShowModal={handleShowModal} deleteCurrentNote={deleteCurrentNote} title={title} />}
 
-        <form action="" onSubmit={saveNote} className="form">
+        <form onSubmit={saveNote} className="form">
           <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} isTablet={isTablet} isDesktop={isDesktop} />
           <Editor showEditor={showEditor} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} isMobile={isMobile} showPreview={showPreview} handleShowPreview={handleShowPreview} hidePreview={hidePreview} />
         </form>
