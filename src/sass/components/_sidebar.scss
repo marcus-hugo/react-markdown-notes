@@ -21,6 +21,7 @@
   letter-spacing: 2px;
   color: var(--clr-grey-400);
   padding: 24px 0;
+  margin: 0 0 10px 0;
 }
 
 .sidebar__button {
@@ -51,12 +52,22 @@
   padding: 12px 0;
 }
 
-.sidebar__li:hover {
-  cursor: pointer;
-}
-
 .sidebar__li:hover .sidebar__note-title {
   color: var(--clr-accent);
+}
+
+.note-btn {
+  border: none;
+  padding: 0;
+  background: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.note-btn:hover {
+  cursor: pointer;
 }
 
 .sidebar__note-date {
@@ -67,5 +78,6 @@
 }
 
 .sidebar__note-title {
+  color: var(--clr-light);
   font-size: 15px;
 }

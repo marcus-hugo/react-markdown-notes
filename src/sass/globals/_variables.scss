@@ -9,7 +9,9 @@
   --clr-grey-800: #2b2d31;
   --clr-grey-900: #1d1f22;
   --clr-dark: #151619;
-  --clr-accent: #e46643;
+  --clr-accent: #b85135;
+  --clr-point-light: #e46643;
+  --clr-point-dark: #b85135;
   --clr-hover: #f39765;
   --clr-modal-backdrop-when-dark: rgb(124, 129, 135, 40%);
   --clr-modal-backdrop-when-light: rgb(21, 22, 25, 60%);
@@ -35,6 +37,7 @@
     --preview-p: var(--clr-grey-400);
     --preview-li: var(--clr-grey-400);
     --preview-a: var(--clr-light);
+    --preview-point-clr: var(--clr-point-light);
     --preview-blockquote-bg: var(--clr-grey-800);
     --preview-blockquote-clr: var(--clr-grey-400);
     --preview-pre-bg: var(--clr-grey-800);
@@ -56,7 +59,7 @@
     --editor-clr: var(--clr-grey-700);
     --preview-bg: var(--clr-light);
     --preview-title-bg: var(--clr-grey-200);
-    --preview-title-clr: var(--clr-grey-500);
+    --preview-title-clr: var(--clr-grey-600);
     --preview-h1: var(--clr-grey-700);
     --preview-h2: var(--clr-dark);
     --preview-h3: var(--clr-grey-700);
@@ -66,6 +69,7 @@
     --preview-p: var(--clr-grey-500);
     --preview-li: var(--clr-grey-500);
     --preview-a: var(--clr-dark);
+    --preview-point: var(--clr-point-dark);
     --preview-blockquote-bg: var(--clr-grey-200);
     --preview-blockquote-clr: var(--clr-grey-700);
     --preview-pre-bg: var(--clr-grey-200);

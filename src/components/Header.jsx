@@ -35,7 +35,7 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTabl
           </svg>
         </button>
 
-        <button type="submit" className="header__button-save" aria-label="save current document">
+        <button type="submit" className="header__button-save" aria-label="save changes">
           <img src="src/assets/icon-save.svg" alt="" />
           {isTablet && <span> Save Changes</span>}
         </button>

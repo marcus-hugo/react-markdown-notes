@@ -23,12 +23,14 @@ function Sidebar({ notes, newNote, updateNote, isOpen, isMobile, theme, switchTh
                 <ul className="sidebar__ul">
                   {notes.map(note => {
                     return (
-                      <li key={note.id} id={note.id} onClick={() => updateNote(note.id)} className="sidebar__li">
-                        <img src="src/assets/icon-document.svg" alt="" />
-                        <div>
-                          <span className="sidebar__note-date">{note.createdAt}</span>
-                          <h3 className="sidebar__note-title">{note.title}</h3>
-                        </div>
+                      <li key={note.id} id={note.id} className="sidebar__li">
+                        <button className="note-btn" onClick={() => updateNote(note.id)}>
+                          <img src="src/assets/icon-document.svg" alt="" />
+                          <div>
+                            <span className="sidebar__note-date">{note.createdAt}</span>
+                            <h3 className="sidebar__note-title">{note.title}</h3>
+                          </div>
+                        </button>
                       </li>
                     )
                   })}

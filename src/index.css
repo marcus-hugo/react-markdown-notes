@@ -10,7 +10,9 @@
   --clr-grey-800: #2b2d31;
   --clr-grey-900: #1d1f22;
   --clr-dark: #151619;
-  --clr-accent: #e46643;
+  --clr-accent: #b85135;
+  --clr-point-light: #e46643;
+  --clr-point-dark: #b85135;
   --clr-hover: #f39765;
   --clr-modal-backdrop-when-dark: rgb(124, 129, 135, 40%);
   --clr-modal-backdrop-when-light: rgb(21, 22, 25, 60%);
@@ -36,6 +38,7 @@
     --preview-p: var(--clr-grey-400);
     --preview-li: var(--clr-grey-400);
     --preview-a: var(--clr-light);
+    --preview-point-clr: var(--clr-point-light);
     --preview-blockquote-bg: var(--clr-grey-800);
     --preview-blockquote-clr: var(--clr-grey-400);
     --preview-pre-bg: var(--clr-grey-800);
@@ -56,7 +59,7 @@
     --editor-clr: var(--clr-grey-700);
     --preview-bg: var(--clr-light);
     --preview-title-bg: var(--clr-grey-200);
-    --preview-title-clr: var(--clr-grey-500);
+    --preview-title-clr: var(--clr-grey-600);
     --preview-h1: var(--clr-grey-700);
     --preview-h2: var(--clr-dark);
     --preview-h3: var(--clr-grey-700);
@@ -66,6 +69,7 @@
     --preview-p: var(--clr-grey-500);
     --preview-li: var(--clr-grey-500);
     --preview-a: var(--clr-dark);
+    --preview-point: var(--clr-point-dark);
     --preview-blockquote-bg: var(--clr-grey-200);
     --preview-blockquote-clr: var(--clr-grey-700);
     --preview-pre-bg: var(--clr-grey-200);
@@ -76,35 +80,6 @@
     --modal-title-clr: var(--clr-grey-700);
   }
 }
-[data-theme=dark] {
-  color-scheme: dark;
-  --background: var(--clr-dark);
-  --color: var(--clr-light);
-  --header-bg: var(--clr-grey-800);
-  --editor-bg: var(--clr-dark);
-  --editor-clr: var(--clr-grey-400);
-  --preview-bg: var(--clr-dark);
-  --preview-title-bg: var(--clr-grey-900);
-  --preview-title-clr: var(--clr-grey-400);
-  --preview-h1: var(--clr-light);
-  --preview-h2: var(--clr-light);
-  --preview-h3: var(--clr-light);
-  --preview-h4: var(--clr-light);
-  --preview-h5: var(--clr-light);
-  --preview-h6: var(--clr-accent);
-  --preview-p: var(--clr-grey-400);
-  --preview-li: var(--clr-grey-400);
-  --preview-a: var(--clr-light);
-  --preview-blockquote-bg: var(--clr-grey-800);
-  --preview-blockquote-clr: var(--clr-grey-400);
-  --preview-pre-bg: var(--clr-grey-800);
-  --preview-code-clr: var(--clr-light);
-  --modal-backdrop: var(--clr-modal-backdrop-when-dark);
-  --modal-bg: var(--clr-grey-900);
-  --modal-clr: var(--clr-grey-400);
-  --modal-title-clr: var(--clr-light);
-}
-
 [data-theme=light] {
   color-scheme: light;
   --background: var(--clr-light);
@@ -114,16 +89,17 @@
   --editor-clr: var(--clr-grey-700);
   --preview-bg: var(--clr-light);
   --preview-title-bg: var(--clr-grey-200);
-  --preview-title-clr: var(--clr-grey-500);
+  --preview-title-clr: var(--clr-grey-600);
   --preview-h1: var(--clr-grey-700);
   --preview-h2: var(--clr-dark);
   --preview-h3: var(--clr-grey-700);
   --preview-h4: var(--clr-grey-700);
   --preview-h5: var(--clr-grey-700);
   --preview-h6: var(--clr-accent);
-  --preview-p: var(--clr-grey-500);
-  --preview-li: var(--clr-grey-500);
+  --preview-p: var(--clr-grey-600);
+  --preview-li: var(--clr-grey-600);
   --preview-a: var(--clr-dark);
+  --preview-point-clr: var(--clr-point-dark);
   --preview-blockquote-bg: var(--clr-grey-200);
   --preview-blockquote-clr: var(--clr-grey-700);
   --preview-pre-bg: var(--clr-grey-200);
@@ -290,7 +266,7 @@ form {
 }
 .preview ul li::before {
   content: "• ";
-  color: var(--clr-accent);
+  color: var(--preview-point-clr);
 }
 .preview blockquote {
   background: var(--preview-blockquote-bg);
@@ -346,6 +322,7 @@ form {
   background: transparent;
   width: 56px;
   height: 56px;
+  margin: 0 1rem 0 0;
 }
 @media (min-width: 768px) {
   .hamburger {
@@ -463,6 +440,7 @@ form {
   letter-spacing: 2px;
   color: var(--clr-grey-400);
   padding: 24px 0;
+  margin: 0 0 10px 0;
 }
 
 .sidebar__button {
@@ -493,12 +471,22 @@ form {
   padding: 12px 0;
 }
 
-.sidebar__li:hover {
-  cursor: pointer;
-}
-
 .sidebar__li:hover .sidebar__note-title {
   color: var(--clr-accent);
+}
+
+.note-btn {
+  border: none;
+  padding: 0;
+  background: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.note-btn:hover {
+  cursor: pointer;
 }
 
 .sidebar__note-date {
@@ -509,6 +497,7 @@ form {
 }
 
 .sidebar__note-title {
+  color: var(--clr-light);
   font-size: 15px;
 }
 
@@ -576,7 +565,7 @@ input[type=checkbox]:focus-visible + .toggle-switch__slider {
   outline-offset: 5px;
 }
 
-.modal {
+.modal-backdrop {
   position: absolute;
   top: 0;
   right: 0;
@@ -598,9 +587,27 @@ input[type=checkbox]:focus-visible + .toggle-switch__slider {
   border-radius: 4px;
 }
 
+.modal__inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .modal__title {
   color: var(--modal-title-clr);
   font-size: 20px;
+}
+
+.modal__button-escape {
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.modal__button-escape:hover {
+  cursor: pointer;
+  background: var(--clr-grey-700);
 }
 
 .modal__text {
@@ -611,7 +618,7 @@ input[type=checkbox]:focus-visible + .toggle-switch__slider {
   padding: 0px 2px 0px 0px;
 }
 
-.modal__button {
+.modal__button-save {
   background: var(--clr-accent);
   color: inherit;
   font-size: 15px;
@@ -621,7 +628,7 @@ input[type=checkbox]:focus-visible + .toggle-switch__slider {
   padding: 12px 0;
 }
 
-.modal__button:hover {
+.modal__button-save:hover {
   cursor: pointer;
   background: var(--clr-hover);
 }

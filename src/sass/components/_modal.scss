@@ -1,4 +1,4 @@
-.modal {
+.modal-backdrop {
   position: absolute;
   top: 0;
   right: 0;
@@ -20,9 +20,28 @@
   border-radius: 4px;
 }
 
+.modal__inner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .modal__title {
   color: var(--modal-title-clr);
   font-size: 20px;
+}
+
+.modal__button-escape {
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.modal__button-escape:hover {
+  cursor: pointer;
+  background: var(--clr-grey-700);
+  // color: var(--clr-accent);
 }
 
 .modal__text {
@@ -33,7 +52,7 @@
   padding: 0px 2px 0px 0px;
 }
 
-.modal__button {
+.modal__button-save {
   background: var(--clr-accent);
   color: inherit;
   font-size: 15px;
@@ -43,7 +62,7 @@
   padding: 12px 0;
 }
 
-.modal__button:hover {
+.modal__button-save:hover {
   cursor: pointer;
   background: var(--clr-hover);
 }
