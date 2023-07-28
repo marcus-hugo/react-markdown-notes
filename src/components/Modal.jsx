@@ -5,7 +5,7 @@ function Modal({ handleShowModal, deleteCurrentNote, title }) {
   return (
     <FocusTrap>
       <div className="modal-backdrop">
-        <div id="alertdialog" role="alertdialog" aria-modal="true" aria-labelledby="dialog_label" aria-describedby="dialog_desc" tabIndex="1" className="modal__content">
+        <div id="alertdialog" role="alertdialog" aria-modal="true" aria-labelledby="dialog_label" aria-describedby="dialog_desc" tabIndex="-1" className="modal__content">
           <div className="modal__inner-container">
             <h3 id="dialog_label" className="modal__title">
               Delete this document?
