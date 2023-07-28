@@ -25,7 +25,7 @@ function Sidebar({ notes, newNote, updateNote, isOpen, isMobile, theme, switchTh
                     return (
                       <li key={note.id} id={note.id} className="sidebar__li">
                         <button className="note-btn" onClick={() => updateNote(note.id)}>
-                          <img src="src/assets/icon-document.svg" alt="" />
+                          <img src="icon-document.svg" alt="" />
                           <div>
                             <span className="sidebar__note-date">{note.createdAt}</span>
                             <h3 className="sidebar__note-title">{note.title}</h3>

@@ -5,8 +5,8 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTabl
       <div className="container">
         <div>
           <button aria-label="toggle navigation" type="button" onClick={handleToggle} className="hamburger">
-            {isOpen && <img src="src/assets/icon-close.svg" alt="" />}
-            {!isOpen && <img src="src/assets/icon-menu.svg" alt="" />}
+            {isOpen && <img src="icon-close.svg" alt="" />}
+            {!isOpen && <img src="icon-menu.svg" alt="" />}
           </button>
         </div>
         {isTablet && (
@@ -18,7 +18,7 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTabl
           </>
         )}
 
-        <img className="icon-document" src="src/assets/icon-document.svg" alt="" />
+        <img className="icon-document" src="icon-document.svg" alt="" />
         <div className="container column">
           <label htmlFor="title" className="header__input-label">
             {isTablet && "Document Name"}
@@ -36,7 +36,7 @@ function Header({ title, setTitle, isOpen, handleToggle, handleShowModal, isTabl
         </button>
 
         <button type="submit" className="header__button-save" aria-label="save changes">
-          <img src="src/assets/icon-save.svg" alt="" />
+          <img src="icon-save.svg" alt="" />
           {isTablet && <span> Save Changes</span>}
         </button>
       </div>
