@@ -27,7 +27,7 @@ function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile
               {/* Preview */}
               <div className="preview-container">
                 <div className="preview__title-container">
-                  <h3 className="preview__title">PREVIEW</h3>
+                  <h2 className="preview__title">PREVIEW</h2>
                   <button onClick={handleShowPreview} type="button" className="preview__button" aria-label="hide preview and show editor">
                     <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
                       <title>hide preview and show editor</title>
@@ -50,7 +50,7 @@ function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile
           {showEditor && (
             <div>
               <div className="editor__title-container">
-                <h3 className="editor__title">MARKDOWN</h3>
+                <h2 className="editor__title">MARKDOWN</h2>
               </div>
               <label htmlFor="markdown">
                 <textarea placeholder={markdown} value={markdown} onChange={e => setMarkdown(e.target.value)} name="" id="markdown" cols="44" rows="30" aria-label="enter markdown in this textbox"></textarea>

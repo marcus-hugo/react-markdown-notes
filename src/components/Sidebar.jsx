@@ -9,7 +9,7 @@ function Sidebar({ notes, newNote, updateNote, isOpen, isMobile, theme, switchTh
           <div>
             <div>
               {isMobile && <h1 className="header__title sidebar__title-mobile">MARKDOWN</h1>}
-              <h3 className="sidebar__title">MY DOCUMENTS</h3>
+              <h2 className="sidebar__title">MY DOCUMENTS</h2>
             </div>
 
             <div>
