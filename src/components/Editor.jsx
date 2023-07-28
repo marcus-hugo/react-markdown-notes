@@ -63,7 +63,7 @@ function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile
 
           <div className="preview-container">
             <div className="preview__title-container">
-              <h3 className="preview__title">PREVIEW</h3>
+              <h2 className="preview__title">PREVIEW</h2>
 
               <button onClick={handlePreviewMode} type="button" className="preview__button" aria-label="hide editor and show preview only">
                 {showEditor ? (
