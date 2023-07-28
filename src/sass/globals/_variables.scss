@@ -15,6 +15,8 @@
   --clr-hover: #f39765;
   --clr-modal-backdrop-when-dark: rgb(124, 129, 135, 40%);
   --clr-modal-backdrop-when-light: rgb(21, 22, 25, 60%);
+  --clr-modal-close-btn-bg-dark: #35393f;
+  --clr-modal-close-btn-bg-light: #e4e4e4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,6 +48,7 @@
     --modal-bg: var(--clr-grey-900);
     --modal-clr: var(--clr-grey-400);
     --modal-title-clr: var(--clr-light);
+    --modal-close-btn-bg-hover: var(--clr-modal-close-btn-bg-dark);
   }
 }
 
@@ -78,5 +81,6 @@
     --modal-bg: var(--clr-light);
     --modal-clr: var(--clr-grey-500);
     --modal-title-clr: var(--clr-grey-700);
+    --modal-close-btn-bg-hover: var(--clr-modal-close-btn-bg-light);
   }
 }

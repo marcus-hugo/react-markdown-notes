@@ -32,16 +32,16 @@
 }
 
 .modal__button-escape {
-  background: transparent;
-  color: inherit;
+  background: var(--modal-bg);
+  color: var(--modal-title-clr);
   border: none;
   font-size: 1.2rem;
 }
 
 .modal__button-escape:hover {
   cursor: pointer;
-  background: var(--clr-grey-700);
-  // color: var(--clr-accent);
+  background: var(--modal-close-btn-bg-hover);
+  color: var(--modal-title-clr);
 }
 
 .modal__text {
