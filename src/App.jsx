@@ -56,7 +56,6 @@ function App() {
     e.preventDefault()
     setShowPreview(!showPreview)
     setHidePreview(!hidePreview)
-    console.log(showPreview)
   }
 
   // When notes array is updated - set local storage to notes array
@@ -90,6 +89,7 @@ function App() {
   // Delete current note
   function deleteCurrentNote(e) {
     e.preventDefault()
+
     let deletedNotes = []
     deletedNotes = [...notes]
     deletedNotes.shift()
@@ -125,7 +125,7 @@ function App() {
     <div className="app-container" data-theme={theme}>
       <main>
         <Sidebar markdown={markdown} setMarkDown={setMarkdown} notes={notes} setNotes={setNotes} newNote={newNote} saveNote={saveNote} updateNote={updateNote} isOpen={isOpen} isMobile={isMobile} theme={theme} switchTheme={switchTheme} />
-        {showModal && <Modal handleShowModal={handleShowModal} deleteCurrentNote={deleteCurrentNote} title={title} />}
+        {showModal && <Modal handleShowModal={handleShowModal} deleteCurrentNote={deleteCurrentNote} title={title} setShowModal={setShowModal} />}
 
         <form onSubmit={saveNote} className="form">
           <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} isTablet={isTablet} isDesktop={isDesktop} />
