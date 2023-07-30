@@ -1,4 +1,4 @@
-# React Markdown Notes App
+# React Markdown Notes
 
 ## Made with:
 
