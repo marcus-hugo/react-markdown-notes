@@ -1,4 +1,4 @@
-# React Markdown Notes
+# React Markdown Notes - Frontend Mentor Challenge
 
 ## Made with:
 
@@ -9,6 +9,7 @@
 
 ## Goals & Challenges
 
+- Make it as close to the Figma design
 - Convert Markdown to HTML in real time
 - Sanitize HTML
 - CRUD operations
