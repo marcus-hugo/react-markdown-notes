@@ -67,8 +67,6 @@ function App() {
   function newNote() {
     let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document.md", content: "" }
     setNotes(oldNotes => [newNote, ...oldNotes])
-    setTitle("New Note.md")
-    setMarkdown("")
     console.log("new note created")
   }
 
