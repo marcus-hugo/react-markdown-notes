@@ -1,6 +1,6 @@
 import ReactMarkdown from "react-markdown"
 
-function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile, showPreview, handleShowPreview, hidePreview }) {
+function Editor({ showEditor, placeholder, markdown, setMarkdown, handlePreviewMode, isMobile, showPreview, handleShowPreview, hidePreview }) {
   return (
     <div className="editor-container">
       {isMobile ? (
@@ -18,7 +18,7 @@ function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile
                 </button>
               </div>
               <label htmlFor="markdown">
-                <textarea aria-label="type markdown here" placeholder={markdown} value={markdown} onChange={e => setMarkdown(e.target.value)} id="markdown" cols="35" rows="30"></textarea>
+                <textarea aria-label="type markdown here" placeholder={placeholder} value={markdown} onChange={e => setMarkdown(e.target.value)} id="markdown" cols="35" rows="30"></textarea>
               </label>
             </div>
           )}
@@ -53,7 +53,7 @@ function Editor({ showEditor, markdown, setMarkdown, handlePreviewMode, isMobile
                 <h2 className="editor__title">MARKDOWN</h2>
               </div>
               <label htmlFor="markdown">
-                <textarea placeholder={markdown} value={markdown} onChange={e => setMarkdown(e.target.value)} name="" id="markdown" cols="44" rows="30" aria-label="enter markdown in this textbox"></textarea>
+                <textarea placeholder={placeholder} value={markdown} onChange={e => setMarkdown(e.target.value)} name="" id="markdown" cols="44" rows="30" aria-label="enter markdown in this textbox"></textarea>
               </label>
             </div>
           )}

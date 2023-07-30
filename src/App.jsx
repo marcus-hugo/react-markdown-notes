@@ -12,6 +12,7 @@ import useLocalStorage from "use-local-storage"
 function App() {
   const [title, setTitle] = useState("")
   const [markdown, setMarkdown] = useState("")
+  const [placeholder, setPlaceHolder] = useState("type markdown here...")
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || [{ id: nanoid(), createdAt: new Date().toLocaleDateString(), title: data[0].title, content: data[0].content }])
   const [isOpen, setIsOpen] = useState(true)
   const [showModal, setShowModal] = useState(false)
@@ -61,6 +62,13 @@ function App() {
   // When notes array is updated - set local storage to notes array
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes))
+  }, [notes])
+
+  // get welcome note and display it
+  useEffect(() => {
+    let firstNote = JSON.parse(localStorage.getItem("notes"))[0] // get first note
+    setTitle(firstNote.title)
+    setMarkdown(firstNote.content)
   }, [notes])
 
   // Create new note
@@ -127,7 +135,7 @@ function App() {
 
         <form onSubmit={saveNote} className="form">
           <Header markdown={markdown} notes={notes} setNotes={setNotes} title={title} setTitle={setTitle} deleteCurrentNote={deleteCurrentNote} isOpen={isOpen} setIsOpen={setIsOpen} handleToggle={handleToggle} handleShowModal={handleShowModal} isTablet={isTablet} isDesktop={isDesktop} />
-          <Editor showEditor={showEditor} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} isMobile={isMobile} showPreview={showPreview} handleShowPreview={handleShowPreview} hidePreview={hidePreview} />
+          <Editor showEditor={showEditor} placeholder={placeholder} markdown={markdown} setMarkdown={setMarkdown} handlePreviewMode={handlePreviewMode} isMobile={isMobile} showPreview={showPreview} handleShowPreview={handleShowPreview} hidePreview={hidePreview} />
         </form>
       </main>
       <Footer />
