@@ -12,7 +12,7 @@ import useLocalStorage from "use-local-storage"
 function App() {
   const [title, setTitle] = useState("")
   const [markdown, setMarkdown] = useState("")
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || [{ id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document", content: "type note here..." }])
+  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || [{ id: nanoid(), createdAt: new Date().toLocaleDateString(), title: data[0].title, content: data[0].content }])
   const [isOpen, setIsOpen] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [showEditor, setShowEditor] = useState(true)
@@ -65,10 +65,10 @@ function App() {
 
   // Create new note
   function newNote() {
-    let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "New Note.md", content: "type note here" }
+    let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document.md", content: "" }
     setNotes(oldNotes => [newNote, ...oldNotes])
     setTitle("New Note.md")
-    setMarkdown("type note here")
+    setMarkdown("")
     console.log("new note created")
   }
 
