@@ -13,7 +13,7 @@ function App() {
   const [title, setTitle] = useState("")
   const [markdown, setMarkdown] = useState("")
   const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || [{ id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document", content: "type note here..." }])
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [showEditor, setShowEditor] = useState(true)
 
