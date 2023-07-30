@@ -1,4 +1,3 @@
-@charset "UTF-8";
 :root {
   --clr-light: #fff;
   --clr-grey-200: #f5f5f5;
@@ -10,10 +9,10 @@
   --clr-grey-800: #2b2d31;
   --clr-grey-900: #1d1f22;
   --clr-dark: #151619;
-  --clr-accent: #b85135;
+  --clr-accent: #e46643;
   --clr-point-light: #e46643;
   --clr-point-dark: #b85135;
-  --clr-hover: #f39765;
+  --clr-hover: #f06e28;
   --clr-modal-backdrop-when-dark: rgb(124, 129, 135, 40%);
   --clr-modal-backdrop-when-light: rgb(21, 22, 25, 60%);
   --clr-modal-close-btn-bg-dark: #35393f;
@@ -84,7 +83,7 @@
     --modal-close-btn-bg-hover: var(--clr-modal-close-btn-bg-light);
   }
 }
-[data-theme=light] {
+[data-theme="light"] {
   color-scheme: light;
   --background: var(--clr-light);
   --color: var(--clr-dark);
@@ -557,15 +556,15 @@ form {
   transition: 0.4s;
 }
 
-input[type=checkbox]:checked + .toggle-switch__slider {
+input[type="checkbox"]:checked + .toggle-switch__slider {
   background: var(--clr-accent);
 }
 
-input[type=checkbox]:checked + .toggle-switch__slider::before {
+input[type="checkbox"]:checked + .toggle-switch__slider::before {
   transform: translate(22px);
 }
 
-input[type=checkbox]:focus-visible + .toggle-switch__slider {
+input[type="checkbox"]:focus-visible + .toggle-switch__slider {
   outline: dashed 3px #ff471a;
   outline-offset: 5px;
 }
