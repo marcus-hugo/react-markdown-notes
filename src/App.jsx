@@ -64,13 +64,6 @@ function App() {
     localStorage.setItem("notes", JSON.stringify(notes))
   }, [notes])
 
-  // get welcome note and display it
-  useEffect(() => {
-    let firstNote = JSON.parse(localStorage.getItem("notes"))[0] // get first note
-    setTitle(firstNote.title)
-    setMarkdown(firstNote.content)
-  }, [notes])
-
   // Create new note
   function newNote() {
     let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document.md", content: "" }
