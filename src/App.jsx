@@ -91,17 +91,19 @@ function App() {
   // Delete current note
   function deleteCurrentNote(e) {
     e.preventDefault()
-    let lastNote = JSON.parse(localStorage.getItem("notes"))
+
     let deletedNotes = []
     deletedNotes = [...notes]
     deletedNotes.shift()
 
     setNotes(deletedNotes)
-    // setTitle("")
-    setTitle(deletedNotes[0].title)
-    // setMarkdown("")
-    setMarkdown(deletedNotes[0].content)
+
     handleShowModal()
+
+    setTitle("untitled-document.md")
+    setPlaceHolder("enter in a new note here...")
+    setMarkdown("")
+
     console.log("note deleted")
   }
 
