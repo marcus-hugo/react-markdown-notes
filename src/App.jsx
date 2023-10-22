@@ -69,6 +69,9 @@ function App() {
     let newNote = { id: nanoid(), createdAt: new Date().toLocaleDateString(), title: "untitled-document.md", content: "" }
     setNotes(oldNotes => [newNote, ...oldNotes])
     console.log("new note created")
+    setTitle("untitled-document.md")
+    setMarkdown("")
+    setPlaceHolder("type new note here...")
   }
 
   // Update notes array with new note
@@ -88,14 +91,16 @@ function App() {
   // Delete current note
   function deleteCurrentNote(e) {
     e.preventDefault()
-
+    let lastNote = JSON.parse(localStorage.getItem("notes"))
     let deletedNotes = []
     deletedNotes = [...notes]
     deletedNotes.shift()
 
     setNotes(deletedNotes)
-    setTitle("")
-    setMarkdown("")
+    // setTitle("")
+    setTitle(deletedNotes[0].title)
+    // setMarkdown("")
+    setMarkdown(deletedNotes[0].content)
     handleShowModal()
     console.log("note deleted")
   }
