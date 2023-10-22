@@ -8,6 +8,7 @@
 - nanoid
 - use-local-storage
 - focus-trap-react(for accessible modal)
+- Vite
 
 ## UI/UX Features
 
