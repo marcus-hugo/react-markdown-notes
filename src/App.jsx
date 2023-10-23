@@ -71,7 +71,7 @@ function App() {
     console.log("new note created")
     setTitle("untitled-document.md")
     setMarkdown("")
-    setPlaceHolder("type new note here...")
+    setPlaceHolder("type markdown here...")
   }
 
   // Update notes array with new note
@@ -101,7 +101,7 @@ function App() {
     handleShowModal()
 
     setTitle("untitled-document.md")
-    setPlaceHolder("enter in a new note here...")
+    setPlaceHolder("type markdown here...")
     setMarkdown("")
 
     console.log("note deleted")
